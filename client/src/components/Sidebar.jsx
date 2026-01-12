@@ -1,4 +1,4 @@
-cdimport React from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { X,Trash2 } from "lucide-react";
 // import { Home, ShoppingBag ,Grid,HelpCircle,Info,User } from "lucide-react";
