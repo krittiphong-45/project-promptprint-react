@@ -1,19 +1,15 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import Navbar from './Navbar';
-import Login from '../views/Login';
-import Register from '../views/Register';
+import Navbar from './Navbar'
+import { Outlet } from 'react-router-dom'
 
 function Layout() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Navbar />
-
-      <main className="w-full px-4 py-6">
+    <div>
+      <Navbar/>
+      <div>
         <Outlet />
-      </main>
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout
