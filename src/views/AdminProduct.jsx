@@ -15,7 +15,9 @@ const AdminProduct = () => {
 
   const fetchProducts = React.useCallback(async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/products");
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/products`
+      );
       const data = await response.json();
       setProducts(data);
     } catch (error) {
@@ -53,8 +55,8 @@ const AdminProduct = () => {
     try {
       const method = editingId ? "PUT" : "POST";
       const url = editingId
-        ? `http://localhost:5000/api/products/${editingId}`
-        : "http://localhost:5000/api/products";
+        ? `${import.meta.env.VITE_API_URL}/api/products/${editingId}`
+        : `${import.meta.env.VITE_API_URL}/api/products`;
 
       const response = await fetch(url, {
         method: method,
@@ -90,7 +92,7 @@ const AdminProduct = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this product?")) {
       try {
-        await fetch(`http://localhost:5000/api/products/${id}`, {
+        await fetch(`${import.meta.env.VITE_API_URL}/api/products/${id}`, {
           method: "DELETE",
         });
         fetchProducts();

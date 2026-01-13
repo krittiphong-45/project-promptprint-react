@@ -10,15 +10,15 @@ const AiDesign = () => {
   const [generatedImage, setGeneratedImage] = useState(null);
   const [enhancedPrompt, setEnhancedPrompt] = useState(null);
 
-  // Function to call AI generation API
+
   const handleGenerate = async () => {
     if (!prompt) return;
     setIsGenerating(true);
-    setGeneratedImage(null); // Clear previous image
+    setGeneratedImage(null); 
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/generate-design",
+        `${import.meta.env.VITE_API_URL}/api/generate-design`,
         {
           method: "POST",
           headers: {

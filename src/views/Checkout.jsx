@@ -19,7 +19,7 @@ const Checkout = () => {
   useEffect(() => {
     if (userId) {
       // Fetch cart for summary
-      fetch(`http://localhost:5000/api/cart/${userId}`)
+      fetch(`${import.meta.env.VITE_API_URL}/api/cart/${userId}`)
         .then((res) => res.json())
         .then((data) => setCart(data))
         .catch((err) => console.error(err));

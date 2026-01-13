@@ -23,22 +23,19 @@ const App = () => {
       {/* Main layout */}
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        {/* E-Commerce Routes from sprint2-merge */}
         <Route path="products" element={<ProductList />} />
         <Route path="admin/products" element={<AdminProduct />} />
         <Route path="cart" element={<Cart />} />
         <Route path="checkout" element={<Checkout />} />
         <Route path="design/:productId" element={<AiDesign />} />
-
-        {/* Pages from develop / combined */}
         <Route path="about" element={<About />} />
         <Route path="faqs" element={<Faqs />} />
         <Route path="membership" element={<Membership />} />
-        {/* Auth Pages moved to Main Layout */}
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Register />} />
         <Route path="forgetpassword" element={<ForgetPassword />} />
         <Route path="resetpassword" element={<ResetPassword />} />
+       
       </Route>
 
       {/* 404 */}

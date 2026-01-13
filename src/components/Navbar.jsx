@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Menu, Search, ShoppingBag, User, Heart } from "lucide-react";
-import Sidebar from "./Sidebar";
-// Keeping the improved UI from sprint2-merge (HEAD) as it supercedes the simpler UI in develop.
-// Integrated the Membership link from develop if needed, but for now stick to the sprint2 design.
+import { Search, ShoppingBag, User, Heart } from "lucide-react";
 
 const Navbar = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   // Handle scroll effect for glassmorphism
@@ -21,37 +17,18 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`sticky top-0 z-40 w-full transition-all duration-300 ${
           isScrolled
             ? "bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100"
-            : "bg-white border-b border-transparent"
+            : "bg-white border-b border-gray-100"
         }`}
       >
-        <Sidebar
-          isOpen={isSidebarOpen}
-          onClose={() => setIsSidebarOpen(false)}
-        />
-
         {/* Main Header Container */}
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            {/* Left: Menu & Brand */}
+            {/* Left area - Empty or Breadcrumbs (optional), removing Logo */}
             <div className="flex items-center gap-4">
-              <button
-                onClick={() => setIsSidebarOpen(true)}
-                className="p-2 -ml-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-full transition-colors focus:outline-none"
-              >
-                <Menu className="w-6 h-6" />
-              </button>
-
-              <Link to="/" className="flex items-center gap-2 group">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center text-white font-bold shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
-                  P
-                </div>
-                <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent group-hover:from-blue-600 group-hover:to-indigo-600 transition-all">
-                  PromptPrint
-                </span>
-              </Link>
+              {/* Logo moved to Sidebar */}
             </div>
 
             {/* Center: Search Bar */}
@@ -112,7 +89,7 @@ const Navbar = () => {
           <div className="w-full px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-8 h-12 text-sm overflow-x-auto no-scrollbar">
               {[
-                "All Categories",
+                "Products",
                 "Featured",
                 "New Arrivals",
                 "Trending",
@@ -145,9 +122,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Spacer to prevent content overlap */}
-      <div className="h-32 hidden md:block" />
-      <div className="h-20 md:hidden" />
+      {/* Spacer removed (Navbar is now sticky) */}
     </>
   );
 };

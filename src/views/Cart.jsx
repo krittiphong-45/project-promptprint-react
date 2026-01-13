@@ -8,7 +8,9 @@ const Cart = () => {
 
   const fetchCart = React.useCallback(async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/cart/${userId}`);
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/cart/${userId}`
+      );
       const data = await response.json();
       setCart(data);
     } catch (error) {
@@ -25,7 +27,7 @@ const Cart = () => {
   const updateQuantity = async (productId, newQuantity) => {
     if (newQuantity < 1) return;
     try {
-      const response = await fetch("http://localhost:5000/api/cart", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/cart`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -45,7 +47,7 @@ const Cart = () => {
   const removeItem = async (productId) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/cart/${userId}/${productId}`,
+        `${import.meta.env.VITE_API_URL}/api/cart/${userId}/${productId}`,
         {
           method: "DELETE",
         }
