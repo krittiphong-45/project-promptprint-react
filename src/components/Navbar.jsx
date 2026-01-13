@@ -2,12 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, Search, ShoppingBag, User, Heart } from "lucide-react";
 import Sidebar from "./Sidebar";
-// dataTerst was in HEAD, assuming we want to keep it if used, or use new backend cart.
-// Feature branch UI looks much cleaner and updated. Stick to feature branch design primarily.
-// But check if any links from HEAD are needed. HEAD has links to /about, /faqs. Feature has /about.
-// HEAD also has a cart badge with `dataTerst.length`. Feature has a static dot.
-// I will keep the Feature branch UI (updated look) but integrate the About link (already there) and add FAQs link.
-// Also update the Cart icon to link to /cart.
+// Keeping the improved UI from sprint2-merge (HEAD) as it supercedes the simpler UI in develop.
+// Integrated the Membership link from develop if needed, but for now stick to the sprint2 design.
 
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
