@@ -1,21 +1,40 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Layout from './components/Layout';
-import Home from './views/Home';
-import Login from './views/Login';
-import Register from './views/Register';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Layout from "./components/Layout";
+import Home from "./views/Home";
+import Login from "./views/Login"
+import Register from "./views/Register";
+import AuthLayout from "./components/AuthLayout"
+import ForgetPassword from "./views/ForgetPassword";
+import ResetPassword from "./views/ResetPassword";
+import Membership from "./views/Membership";
 
-const App = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="Login" element={<Login />} />
-        <Route path="Register" element={<Register />} />
-        
-      </Route>
-    </Routes>
-  );
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    errorElement: (
+      <div className="min-h-screen flex flex-col justify-center items-center bg-red-300">
+        <h1 className="font-bold">404 - Page Not Found 😭😭</h1>
+      </div>
+    ),
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "membership", element: <Membership /> },
+    ],
+  },
+  {
+    path: "/",
+    element: <AuthLayout />,
+    children: [
+      { path: "login", element: <Login /> },
+      { path: "signup", element: <Register /> },
+      { path: "forgetpassword", element: <ForgetPassword /> },
+      { path: "resetpassword", element: <ResetPassword /> },
+    ],
+  }
+]);
+
+export default function App() {
+  return <RouterProvider router={router} />;
 }
-
-export default App
