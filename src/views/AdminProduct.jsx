@@ -37,7 +37,7 @@ export default function AdminProduct() {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/products`,
+        `${import.meta.env.VITE_API_URL}/admin/products`,
         {
           method: "POST",
           headers: {
@@ -172,11 +172,15 @@ export default function AdminProduct() {
                         const formData = new FormData();
                         formData.append("image", file);
 
+                        const token = localStorage.getItem("token"); // Get token here
                         try {
                           const response = await fetch(
                             `${import.meta.env.VITE_API_URL}/api/upload`,
                             {
                               method: "POST",
+                              headers: {
+                                Authorization: `Bearer ${token}`,
+                              },
                               body: formData,
                             }
                           );

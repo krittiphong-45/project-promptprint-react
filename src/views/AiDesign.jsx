@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Sparkles, Download, Share2, ArrowLeft, Wand2 } from "lucide-react";
 
 const AiDesign = () => {
-  const { productId } = useParams();
+  // const { productId } = useParams();
   const [prompt, setPrompt] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedImage, setGeneratedImage] = useState(null);
