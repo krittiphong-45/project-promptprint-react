@@ -60,16 +60,6 @@ const AiDesign = () => {
     }
   };
 
-  const handleDownload = () => {
-    if (!generatedImage) return;
-    const link = document.createElement("a");
-    link.href = generatedImage;
-    link.download = `promptprint-design-${Date.now()}.png`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   const handleUseDesign = () => {
     alert("Design selected! (Feature coming soon: Add to Cart)");
   };
@@ -217,33 +207,6 @@ const AiDesign = () => {
                 </div>
               </div>
 
-              {/* Background Removal Button (Visible only if transparent version not yet created) */}
-              {generatedImage && !transparentImage && (
-                <div className="mb-6 lg:mb-8 shrink-0">
-                  <button
-                    onClick={handleRemoveBackground}
-                    disabled={isRemovingBg}
-                    className={`flex items-center justify-center gap-2 w-full py-3 rounded-xl border-2 font-semibold transition-all ${
-                      isRemovingBg
-                        ? "bg-gray-100 border-gray-200 text-gray-400 cursor-not-allowed"
-                        : "border-blue-100 text-blue-600 hover:bg-blue-50 hover:border-blue-200"
-                    }`}
-                  >
-                    {isRemovingBg ? (
-                      <>
-                        <div className="w-4 h-4 border-2 border-gray-400 border-t-transparent rounded-full animate-spin"></div>
-                        Removing Background...
-                      </>
-                    ) : (
-                      <>
-                        <Sparkles className="w-4 h-4" />
-                        Remove Background (Magic)
-                      </>
-                    )}
-                  </button>
-                </div>
-              )}
-
               {/* Styles */}
               <div className="mb-6 lg:mb-8 shrink-0">
                 <label className="block text-sm font-medium text-gray-700 mb-3">
@@ -289,20 +252,38 @@ const AiDesign = () => {
 
                 {/* Actions for Generated Image */}
                 {generatedImage && (
-                  <div className="grid grid-cols-2 gap-3 animate-in slide-in-from-bottom-2">
-                    <button
-                      onClick={handleDownload}
-                      className="flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-gray-200 font-semibold text-gray-700 hover:border-gray-300 hover:bg-gray-50 transition-all"
-                    >
-                      <Download className="w-5 h-5" />
-                      Download
-                    </button>
+                  <div className="space-y-3 animate-in slide-in-from-bottom-2">
+                    {/* Remove Background Action */}
+                    {!transparentImage && (
+                      <button
+                        onClick={handleRemoveBackground}
+                        disabled={isRemovingBg}
+                        className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl border-2 font-semibold transition-all ${
+                          isRemovingBg
+                            ? "bg-gray-100 border-gray-200 text-gray-400 cursor-not-allowed"
+                            : "border-blue-100 text-blue-600 hover:bg-blue-50 hover:border-blue-200"
+                        }`}
+                      >
+                        {isRemovingBg ? (
+                          <>
+                            <div className="w-4 h-4 border-2 border-gray-400 border-t-transparent rounded-full animate-spin"></div>
+                            Removing Background...
+                          </>
+                        ) : (
+                          <>
+                            <Sparkles className="w-4 h-4" />
+                            Remove Background (Magic)
+                          </>
+                        )}
+                      </button>
+                    )}
+
                     <button
                       onClick={handleUseDesign}
-                      className="flex items-center justify-center gap-2 py-3 rounded-xl bg-green-600 text-white font-bold shadow-lg shadow-green-500/20 hover:bg-green-700 transition-all transform hover:-translate-y-0.5"
+                      className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-green-600 text-white font-bold shadow-lg shadow-green-500/20 hover:bg-green-700 transition-all transform hover:-translate-y-0.5"
                     >
                       <Share2 className="w-5 h-5" />
-                      Use Design
+                      Use This Design for T-Shirt
                     </button>
                   </div>
                 )}
