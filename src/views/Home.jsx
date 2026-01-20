@@ -3,10 +3,6 @@ import ProductCard from "../components/ProductCard";
 
 const Home = () => {
   // Dummy Data
-<<<<<<< HEAD
-  // Dummy Data (Removed)
-  const products = [];
-=======
   const products = [
     {
       id: 1,
@@ -46,54 +42,24 @@ const Home = () => {
       isNew: true,
     },
   ];
->>>>>>> 8cebf9cbacd9c20cadc7c2d09073714c65950344
 
   return (
     <div className="w-full">
       {/* Featured Products Section */}
-<<<<<<< HEAD
-      <div>
-=======
       <div className="mt-8">
->>>>>>> 8cebf9cbacd9c20cadc7c2d09073714c65950344
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-2xl font-bold text-gray-900">
             Featured Products
           </h2>
-<<<<<<< HEAD
-=======
           <button className="text-blue-600 font-medium hover:text-blue-800 transition-colors">
             View All &rarr;
           </button>
->>>>>>> 8cebf9cbacd9c20cadc7c2d09073714c65950344
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
-<<<<<<< HEAD
-          {/* Empty Placeholders (Skeleton) */}
-          {[...Array(6)].map((_, index) => (
-            <div
-              key={`skeleton-${index}`}
-              className="group relative bg-white rounded-2xl border border-gray-100 p-3 shadow-xs hover:shadow-xl transition-all duration-300 animate-pulse"
-            >
-              {/* Image Skeleton */}
-              <div className="aspect-square w-full bg-gray-200 rounded-xl mb-4" />
-
-              {/* Content Skeleton */}
-              <div className="space-y-3 px-1">
-                <div className="h-4 bg-gray-200 rounded w-2/3" />
-                <div className="flex justify-between items-center pt-2">
-                  <div className="h-5 bg-gray-200 rounded w-1/4" />
-                  <div className="h-8 w-8 bg-gray-200 rounded-full" />
-                </div>
-              </div>
-            </div>
-          ))}
-=======
->>>>>>> 8cebf9cbacd9c20cadc7c2d09073714c65950344
         </div>
       </div>
 
