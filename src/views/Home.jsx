@@ -7,42 +7,42 @@ const Home = () => {
       id: 1,
       name: "เสื้อยืด Premium Cotton Black",
       price: 890,
-      image: 'HomeBlackTshirt',
+      image: 'HomeBlackTshirt.png',
       category: "T-Shirts"
     },
     {
       id: 2,
       name: "เสื้อยืด Premium Cotton Green",
       price: 950,
-      image: 'HomeGreenTshirt',
+      image: 'HomeGreenTshirt.png',
       category: "T-Shirts"
     },
     {
       id: 3,
       name: "เสื้อยืด Premium Cotton Pastel",
       price: 790,
-      image: 'HomePastelTshirt',
+      image: 'HomePastelTshirt.png',
       category: "T-Shirts"
     },
     {
       id: 4,
       name: "เสื้อยืด Premium Cotton Purple",
       price: 490,
-      image: 'HomePurpleTshirt',
+      image: 'HomePurpleTshirt.png',
       category: "T-Shirts"
     },
     {
       id: 5,
       name: "เสื้อยืด Premium Cotton White",
       price: 1290,
-      image: 'HomeWhiteTshirt',
+      image: 'HomeWhiteTshirt.png',
       category: "T-Shirts"
     },
     {
       id: 6,
       name: "เสื้อยืด Premium Cotton Red",
       price: 890,
-      image: 'HomeRedTshirt',
+      image: 'HomeRedTshirt.png',
       category: "T-Shirts"
     }
   ];
